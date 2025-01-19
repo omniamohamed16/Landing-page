@@ -1,4 +1,8 @@
-:root{--main-color: #ff5722}
+:root {
+    --main-color: #ff5722
+}
+
+*{box-sizing: border-box;}
 header {
     margin: 0;
     padding: 0;
@@ -12,6 +16,7 @@ body {
 
 /* Start setting box */
 .setting-box {
+    text-align: center;
     background-color: #3a3434;
     width: 200px;
     font-size: 15px;
@@ -37,66 +42,99 @@ body {
     color: var(--main-color);
 }
 
-.setting-box .option-box h5 {
-    padding-left: 20px;
-    color: azure;
-
-    font-size: 20px;
+.setting-box .option-box {
+    height: 80px;
+    background-color: #00000023;
+    margin-top: -15px;
+    margin-left: 10px;
+    margin-right: 10px; 
+    padding-bottom: 20px;
 }
 
-.setting-box .option-box {
-    height: 20px;
+.setting-box .option-box h5 {
+    padding-top: 10px;
+    margin-bottom: 15px;
+    color: azure;
+    font-size: 20px;
 }
 
 .setting-box .option-box .colors {
     text-align: center;
     list-style: none;
-    padding: 0;
+    padding-left: 0;
+    margin-top: 0;
 }
 
 .setting-box .option-box li {
     margin-right: 5px;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     display: inline-block;
-    background-color: black;
     opacity: .5;
     cursor: pointer;
+
 }
 
 .setting-box .option-box li:hover {
-    width: 12px;
-    height: 12px;
+    width: 17px;
+    height: 17px;
 }
+
 .setting-box .option-box li.active {
-    width: 12px;
-    height: 12px;
+    border: 2px solid white;
 }
+
 .setting-box .option-box li:first-child {
     opacity: 1;
     background-color: #ff5722;
 }
 
 .setting-box .option-box li:nth-child(2) {
-    opacity: 1;
+
     background-color: #f6098b;
 }
 
 .setting-box .option-box li:nth-child(3) {
-    opacity: 1;
+
     background-color: #15770d;
 }
 
 .setting-box .option-box li:nth-child(4) {
-    opacity: 1;
+
     background-color: #3508a7;
 }
 
 .setting-box .option-box li:nth-child(5) {
-    opacity: 1;
+
     background-color: red;
 }
+
+
+.setting-box .option-box .Random-background {
+    font-size: 14px;
+}
+
+.setting-box .option-box span.yes , .setting-box .option-box span.no {
+   color: white;
+   font-size: 14px;
+   border: #333 solid 2px;
+   opacity: .5;
+   padding: 0 15px;
+   border-radius: 1rem;
+   background-color:#333;
+   margin: 10px;
+   cursor: pointer;
+}
+
+
+.setting-box .option-box span.active{
+    opacity: 1;
+}
+/* .setting-box .option-box span.no{
+    font-size: 14px;
+} */
+
 
 /* End setting box */
 
@@ -173,10 +211,12 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
+    width: 80%;
 }
 
 .introduction-text h1 span {
     color: var(--main-color);
     font-size: larger;
+
 
 }
