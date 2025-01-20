@@ -30,7 +30,9 @@ body {
 .setting-box.open {
     left: 0;
 }
-
+.setting-box.close{
+    left: -200px;
+}
 
 .setting-box .gear-container {
     margin: 10px;
@@ -111,24 +113,25 @@ body {
 }
 
 
-.setting-box .option-box .Random-background {
+.setting-box  .Random-background h5 {
     font-size: 14px;
 }
 
-.setting-box .option-box span.yes , .setting-box .option-box span.no {
+.setting-box  span.yes , .setting-box .option-box span.no {
    color: white;
    font-size: 14px;
-   border: #333 solid 2px;
+   border: #19743f solid 2px;
    opacity: .5;
-   padding: 0 15px;
-   border-radius: 1rem;
-   background-color:#333;
+   padding: 0 10px;
+   border-radius: 4px;
+   background-color:#19743f;
    margin: 10px;
    cursor: pointer;
+   
 }
 
 
-.setting-box .option-box span.active{
+.setting-box .Random-background span.active{
     opacity: 1;
 }
 /* .setting-box .option-box span.no{
