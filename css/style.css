@@ -2,7 +2,10 @@
     --main-color: #ff5722
 }
 
-*{box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+}
+
 header {
     margin: 0;
     padding: 0;
@@ -30,7 +33,8 @@ body {
 .setting-box.open {
     left: 0;
 }
-.setting-box.close{
+
+.setting-box.close {
     left: -200px;
 }
 
@@ -49,7 +53,7 @@ body {
     background-color: #00000023;
     margin-top: -15px;
     margin-left: 10px;
-    margin-right: 10px; 
+    margin-right: 10px;
     padding-bottom: 20px;
 }
 
@@ -113,27 +117,29 @@ body {
 }
 
 
-.setting-box  .Random-background h5 {
+.setting-box .Random-background h5 {
     font-size: 14px;
 }
 
-.setting-box  span.yes , .setting-box .option-box span.no {
-   color: white;
-   font-size: 14px;
-   border: #19743f solid 2px;
-   opacity: .5;
-   padding: 0 10px;
-   border-radius: 4px;
-   background-color:#19743f;
-   margin: 10px;
-   cursor: pointer;
-   
+.setting-box span.yes,
+.setting-box .option-box span.no {
+    color: white;
+    font-size: 14px;
+    border: #19743f solid 2px;
+    opacity: .5;
+    padding: 0 10px;
+    border-radius: 4px;
+    background-color: #19743f;
+    margin: 10px;
+    cursor: pointer;
+
 }
 
 
-.setting-box .Random-background span.active{
+.setting-box .Random-background span.active {
     opacity: 1;
 }
+
 /* .setting-box .option-box span.no{
     font-size: 14px;
 } */
@@ -156,6 +162,13 @@ body {
     transition: background-image 1s ease-in-out;
 }
 
+.container {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 15px;
+    margin: auto;
+}
+
 .over-lay {
     background-color: #000000ad;
     width: 100%;
@@ -175,7 +188,7 @@ body {
 .header-area .logo {
     font-size: 20px;
     width: 300px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     padding-top: 10px;
     align-items: center;
     font-weight: bold;
@@ -222,4 +235,47 @@ body {
     font-size: larger;
 
 
+}
+
+/* start about us */
+.about-us {
+   
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+}
+
+.about-us .info-box {
+
+    flex: 1;
+    line-height: 1.8;
+    color: #ac9a9a;
+}
+
+.about-us .info-box h2 {
+    font-size: large;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.about-us .info-box p {
+    width:60%;
+    color: #645d5d;
+    margin: 0;
+
+}
+
+.about-us .info-box .image-box {
+display: flex;
+flex-wrap: wrap;
+    align-items: flex-start;
+  justify-content: space-between
+;
+  
+}
+
+.about-us .info-box .image-box img {
+    width: 400px;
+    height: 200px;
+   
 }

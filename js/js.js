@@ -7,10 +7,6 @@ gear.addEventListener("click", function () {
   settingBox.classList.toggle("open");
 });
 
-window.addEventListener("click", function(){
-  settingBox. 
-})
-
 // start colors switch
 let colorsLi = document.querySelectorAll(".colors li");
 colorsLi.forEach((li) => {
@@ -95,7 +91,7 @@ randombackInterval = function () {
       let randnumb = Math.floor(Math.random() * imgArray.length);
 
       land.style.backgroundImage = 'url("../imgs/' + imgArray[randnumb] + '")';
-    }, 1000);
+    }, 5000);
   }
 };
 
