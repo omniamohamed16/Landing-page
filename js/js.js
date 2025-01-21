@@ -96,3 +96,21 @@ randombackInterval = function () {
 };
 
 randombackInterval();
+
+// Our Skill progress bar
+
+skills = document.querySelector(".skills");
+
+window.onscroll = function () {
+  let skillsoffsettop = skills.offsetTop; // المسافة من أعلى الصفحة لـ Skills
+  let skillsheight = skills.offsetHeight; // ارتفاع قسم الـ Skills
+  let windowHeight = this.innerHeight; // ارتفاع النافذة الظاهرة
+  let windoScrollTop = this.scrollY; // المقدار اللي تم Scrollه
+  if (windoScrollTop > skillsoffsettop - windowHeight) {
+ let colorprog = document.querySelectorAll(".skill-progress .progress-color");
+    colorprog.forEach(el => {
+      el.style.width = el.dataset.prog;
+    });
+
+  }
+};
