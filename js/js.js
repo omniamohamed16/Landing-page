@@ -107,10 +107,11 @@ window.onscroll = function () {
   let windowHeight = this.innerHeight; // ارتفاع النافذة الظاهرة
   let windoScrollTop = this.scrollY; // المقدار اللي تم Scrollه
   if (windoScrollTop > skillsoffsettop - windowHeight) {
- let colorprog = document.querySelectorAll(".skill-progress .progress-color");
-    colorprog.forEach(el => {
+    let colorprog = document.querySelectorAll(
+      ".skill-progress .progress-color"
+    );
+    colorprog.forEach((el) => {
       el.style.width = el.dataset.prog;
     });
-
   }
 };

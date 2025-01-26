@@ -361,3 +361,36 @@ body {
     height: 10px;
     background-color: var(--main-color);
 }
+
+
+/* start our gallary */
+.gallery{
+    margin-top: 50px;
+    height: 400px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-color: #3a343424;
+    display: flex;
+   flex-direction: column;
+    align-items: center;
+   
+}
+.gallery .title{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    color: var(--main-color);
+}
+.gallery .img-box{
+    text-align: center;
+/* display: flex;
+flex-wrap: wrap; */
+align-items: center;
+flex-direction: row;
+/* flex: 1; */
+
+}
+.gallery .img-box img{
+width: 210px;
+
+}
