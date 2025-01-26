@@ -21,7 +21,7 @@ body {
 /* Start setting box */
 .setting-box {
     text-align: center;
-    background-color: #3a3434;
+    background-color: #eee;
     width: 200px;
     font-size: 15px;
     min-height: 100vh;
@@ -51,7 +51,7 @@ body {
 
 .setting-box .option-box {
     height: 80px;
-    background-color: #00000023;
+    background-color: #fafafa;
     margin-top: -15px;
     margin-left: 10px;
     margin-right: 10px;
@@ -61,7 +61,7 @@ body {
 .setting-box .option-box h5 {
     padding-top: 10px;
     margin-bottom: 15px;
-    color: azure;
+    color: black;
     font-size: 20px;
 }
 
@@ -178,12 +178,15 @@ body {
 }
 
 .header-area {
+    
     padding-top: 10px;
     color: aliceblue;
     font-weight: 200;
     position: relative;
     z-index: 2;
     display: flex;
+    justify-content: space-between;
+  
 }
 
 .header-area .logo {
@@ -196,7 +199,7 @@ body {
 }
 
 .header-area .links {
-    width: 100%;
+    width: auto;
     list-style-type: none;
     display: flex;
     flex-direction: row-reverse;
@@ -268,21 +271,21 @@ body {
 
 .about-us .info-box .image-box {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
 
 }
 
 .about-us .info-box .image-box img {
-    width: 400px;
+    width: auto;
     height: 200px;
 
 }
 
 /* start skill box */
 .skills {
-    height: 200px;
+    height: auto;
     padding-top: 20px;
     padding-bottom: 50px;
     background-color: #3a343424;
@@ -300,6 +303,7 @@ body {
 .skill-boxes {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     gap: 5px;
@@ -308,6 +312,7 @@ body {
 
 .skill-box {
     display: flex;
+   
     flex-direction: column;
     align-items: center;
     flex: 1;
@@ -366,7 +371,7 @@ body {
 /* start our gallary */
 .gallery{
     margin-top: 50px;
-    height: 400px;
+    height: auto;
     padding-top: 20px;
     padding-bottom: 50px;
     background-color: #3a343424;
@@ -376,6 +381,7 @@ body {
    
 }
 .gallery .title{
+    padding-bottom: 10px;
     text-align: center;
     font-size: large;
     font-weight: bold;
@@ -383,14 +389,15 @@ body {
 }
 .gallery .img-box{
     text-align: center;
-/* display: flex;
-flex-wrap: wrap; */
+display: flex;
+flex-wrap: wrap;
 align-items: center;
 flex-direction: row;
-/* flex: 1; */
+flex: 1;
 
 }
 .gallery .img-box img{
 width: 210px;
-
+cursor: pointer;
+margin: 5px;
 }
