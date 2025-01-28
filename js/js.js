@@ -115,3 +115,77 @@ window.onscroll = function () {
     });
   }
 };
+
+// Start Our Gallery //////////////
+
+// create overlay ///////
+let ourGallery = document.querySelectorAll(".gallery-container img");
+
+ourGallery.forEach((img) => {
+
+  img.addEventListener("click", (e) => {
+
+    let overlay = document.createElement("div");
+
+    // create overlay dark screen
+
+    overlay.className = "popup-overlay";
+    document.body.appendChild(overlay);
+
+    // create overlay-box
+
+    let popupBox = document.createElement("div");
+    popupBox.className = "popup-box";
+    
+
+    
+    // create Heading
+    if(img.alt !== null){
+
+      // create Heading
+      let imgHeading = document.createElement("h3")
+
+      // create text for heading 
+      let ImgText = document.createTextNode(img.alt)
+      
+      // Append Text to heading h3
+      imgHeading.appendChild(ImgText)
+
+      // Apped heading to popupBox
+      popupBox.appendChild(imgHeading)
+    }
+
+
+
+    // create img
+    let popupImage = document.createElement("img");
+    popupImage.className = "popup-image"
+    popupImage.src = img.src
+ 
+    // Add popupImage to popupBox
+
+    popupBox.appendChild(popupImage)
+
+    // Add popupBox to overlay
+
+    overlay.appendChild(popupBox)
+    
+
+    // Create Close Button
+    closeButton = document.createElement("span")
+    closeIcon = document.createTextNode("x")
+    closeButton.appendChild(closeIcon)
+    popupBox.appendChild(closeButton)
+    closeButton.className = "close-button"
+
+  });
+});
+
+// close popup 
+
+document.addEventListener("click" , e=>{
+  if(e.target.className == "close-button"){
+    document.querySelector(".popup-overlay").remove()
+  }
+})
+
