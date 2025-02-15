@@ -189,3 +189,16 @@ document.addEventListener("click" , e=>{
   }
 })
 
+
+// Start Nav Bullets //
+
+navBullets = document.querySelectorAll(".nav-bullets .bullets")
+
+navBullets.forEach((bullet) => {
+  bullet.addEventListener("click" , (e) => {
+  
+    document.querySelector(e.target.dataset.section).scrollIntoView(
+      {behavior:'smooth'}
+    )
+  
+})})
