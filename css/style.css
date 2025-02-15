@@ -89,7 +89,7 @@ body {
 }
 
 .setting-box .option-box li.active {
-    border: 2px solid white;
+    border: 10px solid var(--main-color);
 }
 
 .setting-box .option-box li:first-child {
@@ -123,7 +123,8 @@ body {
 }
 
 .setting-box .option-box span.yes,
-.setting-box .option-box span.no {
+.setting-box .option-box span.no,
+.setting-box .option-box span.reset {
     color: white;
     font-size: 14px;
     border: #19743f solid 2px;

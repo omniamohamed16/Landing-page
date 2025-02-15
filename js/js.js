@@ -1,5 +1,5 @@
 function eventHandle(ev) {
-  ev.target.parentElement
+    ev.target.parentElement
     .querySelectorAll(".active")
     .forEach((element) => element.classList.remove("active"));
   // Add active class for the targeted element only
@@ -209,16 +209,57 @@ yes.addEventListener("click", (e) => {
 
 navingLS = localStorage.getItem("naving");
 
-if (navingLS === "none") {
-  no.classList.add("active");
-} else {
-  yes.classList.add("active");
-}
-
 if (navingLS !== null) {
   navBullets.style.setProperty("display", localStorage.getItem("naving"));
+
+  if (navingLS === "none") {
+    no.classList.add("active");
+  } else {
+    yes.classList.add("active");
+  }
 }
 
 if (navingLS == null) {
   navBullets.style.setProperty("display", "block");
 }
+
+
+// Rest Button //
+
+let ResetBtn = document.querySelector(".reset-option span.reset");
+
+let optionBoxes = document.querySelectorAll(".option-box span");
+
+let yeses = document.querySelectorAll(".option-box span.yes")
+
+ResetBtn.addEventListener("click", (e) => {
+
+  // resting deault color and its active class //
+    document.documentElement.style.setProperty("--main-color", "#ff5722");
+  localStorage.setItem("colors-options", "#ff5722")
+  document.querySelectorAll(".colors li")
+    .forEach((e) => {
+      e.classList.remove("active");
+    });
+  document
+    .querySelector(".setting-box .option-box li:first-child")
+    .classList.add("active");
+
+
+  // resting random background //
+  backgroundopt = true;
+  randombackInterval();
+  localStorage.setItem("randChoice", true);
+
+
+  // resting navigating bullets //
+  optionBoxes.forEach((element) => element.classList.remove("active"));
+  navBullets.style.setProperty("display", "block");
+  localStorage.setItem("naving", "block");
+
+
+  yeses.forEach((e)=>
+  e.classList.add("active"))
+
+  window.location.reload()
+});
