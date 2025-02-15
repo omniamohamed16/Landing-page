@@ -1,3 +1,11 @@
+function eventHandle(ev) {
+  ev.target.parentElement
+    .querySelectorAll(".active")
+    .forEach((element) => element.classList.remove("active"));
+  // Add active class for the targeted element only
+  ev.target.classList.add("active");
+}
+
 // setting box opening
 settingBox = document.querySelector(".setting-box");
 gear = document.querySelector(".fa-gear");
@@ -18,12 +26,7 @@ colorsLi.forEach((li) => {
     );
     localStorage.setItem("colors-options", e.target.dataset.color);
 
-    // Remove active class from all children
-    e.target.parentElement
-      .querySelectorAll(".active")
-      .forEach((element) => element.classList.remove("active"));
-    // Add active class for the targeted element only
-    e.target.classList.add("active");
+    eventHandle(e);
   });
 });
 let mainColor = localStorage.getItem("colors-options");
@@ -50,6 +53,7 @@ let backgroundopt = true;
 let myInterval;
 start = document.querySelector(".Random-background span.yes");
 end = document.querySelector(".Random-background span.no");
+
 if (localStorage.getItem("randChoice") === "true") {
   backgroundopt = true;
   start.classList.add("active");
@@ -58,14 +62,11 @@ if (localStorage.getItem("randChoice") === "true") {
   end.classList.add("active");
 }
 
-randback = document.querySelectorAll(".Random-background span");
+randback = document.querySelectorAll(".option-box span");
 
 randback.forEach((e) =>
   e.addEventListener("click", function (e) {
-    e.target.parentElement
-      .querySelectorAll(".active")
-      .forEach((e) => e.classList.remove("active"));
-    e.target.classList.add("active");
+    eventHandle(e);
 
     if (e.target.dataset.background === "yes") {
       localStorage.setItem("randChoice", true);
@@ -122,9 +123,7 @@ window.onscroll = function () {
 let ourGallery = document.querySelectorAll(".gallery-container img");
 
 ourGallery.forEach((img) => {
-
   img.addEventListener("click", (e) => {
-
     let overlay = document.createElement("div");
 
     // create overlay dark screen
@@ -136,69 +135,90 @@ ourGallery.forEach((img) => {
 
     let popupBox = document.createElement("div");
     popupBox.className = "popup-box";
-    
 
-    
     // create Heading
-    if(img.alt !== null){
-
+    if (img.alt !== null) {
       // create Heading
-      let imgHeading = document.createElement("h3")
+      let imgHeading = document.createElement("h3");
 
-      // create text for heading 
-      let ImgText = document.createTextNode(img.alt)
-      
+      // create text for heading
+      let ImgText = document.createTextNode(img.alt);
+
       // Append Text to heading h3
-      imgHeading.appendChild(ImgText)
+      imgHeading.appendChild(ImgText);
 
       // Apped heading to popupBox
-      popupBox.appendChild(imgHeading)
+      popupBox.appendChild(imgHeading);
     }
-
-
 
     // create img
     let popupImage = document.createElement("img");
-    popupImage.className = "popup-image"
-    popupImage.src = img.src
- 
+    popupImage.className = "popup-image";
+    popupImage.src = img.src;
+
     // Add popupImage to popupBox
 
-    popupBox.appendChild(popupImage)
+    popupBox.appendChild(popupImage);
 
     // Add popupBox to overlay
 
-    overlay.appendChild(popupBox)
-    
+    overlay.appendChild(popupBox);
 
     // Create Close Button
-    closeButton = document.createElement("span")
-    closeIcon = document.createTextNode("x")
-    closeButton.appendChild(closeIcon)
-    popupBox.appendChild(closeButton)
-    closeButton.className = "close-button"
-
+    closeButton = document.createElement("span");
+    closeIcon = document.createTextNode("x");
+    closeButton.appendChild(closeIcon);
+    popupBox.appendChild(closeButton);
+    closeButton.className = "close-button";
   });
 });
 
-// close popup 
+// close popup
 
-document.addEventListener("click" , e=>{
-  if(e.target.className == "close-button"){
-    document.querySelector(".popup-overlay").remove()
+document.addEventListener("click", (e) => {
+  if (e.target.className == "close-button") {
+    document.querySelector(".popup-overlay").remove();
   }
-})
-
+});
 
 // Start Nav Bullets //
+navBullets = document.querySelector(".nav-bullets");
+Bullets = document.querySelectorAll(".nav-bullets .bullets");
+yes = document.querySelector(".nav-bullets-option span.yes");
+no = document.querySelector(".nav-bullets-option span.no");
 
-navBullets = document.querySelectorAll(".nav-bullets .bullets")
+Bullets.forEach((bullet) => {
+  bullet.addEventListener("click", (e) => {
+    document
+      .querySelector(e.target.dataset.section)
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
 
-navBullets.forEach((bullet) => {
-  bullet.addEventListener("click" , (e) => {
-  
-    document.querySelector(e.target.dataset.section).scrollIntoView(
-      {behavior:'smooth'}
-    )
-  
-})})
+no.addEventListener("click", (e) => {
+  navBullets.style.display = "none";
+  no.classList.add("active");
+  localStorage.setItem("naving", "none");
+});
+
+yes.addEventListener("click", (e) => {
+  yes.classList.add("active");
+  navBullets.style.display = "block";
+  localStorage.setItem("naving", "block");
+});
+
+navingLS = localStorage.getItem("naving");
+
+if (navingLS === "none") {
+  no.classList.add("active");
+} else {
+  yes.classList.add("active");
+}
+
+if (navingLS !== null) {
+  navBullets.style.setProperty("display", localStorage.getItem("naving"));
+}
+
+if (navingLS == null) {
+  navBullets.style.setProperty("display", "block");
+}

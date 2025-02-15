@@ -62,7 +62,7 @@ body {
     padding-top: 10px;
     margin-bottom: 15px;
     color: black;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .setting-box .option-box .colors {
@@ -122,7 +122,7 @@ body {
     font-size: 14px;
 }
 
-.setting-box span.yes,
+.setting-box .option-box span.yes,
 .setting-box .option-box span.no {
     color: white;
     font-size: 14px;
@@ -137,7 +137,7 @@ body {
 }
 
 
-.setting-box .Random-background span.active {
+.setting-box .option-box span.active {
     opacity: 1;
 }
 
@@ -195,6 +195,10 @@ display: block;
     text-align: center;
     cursor: default;
     pointer-events: none;
+    display: none;
+}
+
+.hidden{
     display: none;
 }
 
