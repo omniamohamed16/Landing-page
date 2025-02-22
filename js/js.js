@@ -263,3 +263,25 @@ ResetBtn.addEventListener("click", (e) => {
 
   window.location.reload()
 });
+
+
+// start toggle menu ////////////////////////
+
+toggleBtn = document.querySelector(".toggle-menu")
+toggleList = document.querySelector(".links")
+
+toggleBtn.addEventListener("click" , (e)=>{
+toggleList.classList.toggle("open")
+toggleBtn.classList.toggle("menu-active")
+
+})
+
+
+
+window.onclick = function(e){
+if (e.target !== toggleBtn){
+
+  toggleList.classList.remove("open")
+  toggleBtn.classList.remove("menu-active")
+}
+}
