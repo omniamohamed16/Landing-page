@@ -268,20 +268,26 @@ ResetBtn.addEventListener("click", (e) => {
 // start toggle menu ////////////////////////
 
 toggleBtn = document.querySelector(".toggle-menu")
+toggleSpan = document.querySelector(".toggle-menu span")
+
 toggleList = document.querySelector(".links")
 
 toggleBtn.addEventListener("click" , (e)=>{
+  e.stopPropagation()
 toggleList.classList.toggle("open")
 toggleBtn.classList.toggle("menu-active")
-
 })
 
 
 
 window.onclick = function(e){
-if (e.target !== toggleBtn){
-
+if (e.target !== toggleBtn && e.target !== toggleList){
+  if(toggleList.classList.contains("open") && toggleBtn.classList.contains("menu-active")){
   toggleList.classList.remove("open")
-  toggleBtn.classList.remove("menu-active")
+  toggleBtn.classList.remove("menu-active")}
 }
+}
+
+toggleList.onclick = function(e){
+e.stopPropagation()
 }
