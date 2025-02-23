@@ -85,6 +85,19 @@ randback.forEach((e) =>
   })
 );
 
+// header area  navigation
+headerLinks = document.querySelectorAll(".links li");
+headerLinks.forEach(function(el){
+  el.addEventListener("click", (e) => {
+    document
+      .querySelector(e.target.dataset.section)
+      .scrollIntoView({ behavior: "smooth" });
+  });
+
+})
+
+
+
 // Landing page img change
 let land = document.querySelector(".landing-page");
 imgArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg"];
