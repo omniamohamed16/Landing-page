@@ -1,5 +1,5 @@
 function eventHandle(ev) {
-    ev.target.parentElement
+  ev.target.parentElement
     .querySelectorAll(".active")
     .forEach((element) => element.classList.remove("active"));
   // Add active class for the targeted element only
@@ -10,9 +10,14 @@ function eventHandle(ev) {
 settingBox = document.querySelector(".setting-box");
 gear = document.querySelector(".fa-gear");
 specialDesign = document.getElementById(".option-box h5");
-gear.addEventListener("click", function () {
+gear.addEventListener("click", function (e) {
+  e.stopPropagation();
   gear.classList.toggle("fa-spin");
   settingBox.classList.toggle("open");
+});
+
+settingBox.addEventListener("click", function (e) {
+  e.stopPropagation();
 });
 
 // start colors switch
@@ -223,71 +228,75 @@ if (navingLS == null) {
   navBullets.style.setProperty("display", "block");
 }
 
-
 // Rest Button //
 
 let ResetBtn = document.querySelector(".reset-option span.reset");
 
 let optionBoxes = document.querySelectorAll(".option-box span");
 
-let yeses = document.querySelectorAll(".option-box span.yes")
+let yeses = document.querySelectorAll(".option-box span.yes");
 
 ResetBtn.addEventListener("click", (e) => {
-
   // resting deault color and its active class //
-    document.documentElement.style.setProperty("--main-color", "#ff5722");
-  localStorage.setItem("colors-options", "#ff5722")
-  document.querySelectorAll(".colors li")
-    .forEach((e) => {
-      e.classList.remove("active");
-    });
+  document.documentElement.style.setProperty("--main-color", "#ff5722");
+  localStorage.setItem("colors-options", "#ff5722");
+  document.querySelectorAll(".colors li").forEach((e) => {
+    e.classList.remove("active");
+  });
   document
     .querySelector(".setting-box .option-box li:first-child")
     .classList.add("active");
-
 
   // resting random background //
   backgroundopt = true;
   randombackInterval();
   localStorage.setItem("randChoice", true);
 
-
   // resting navigating bullets //
   optionBoxes.forEach((element) => element.classList.remove("active"));
   navBullets.style.setProperty("display", "block");
   localStorage.setItem("naving", "block");
 
+  yeses.forEach((e) => e.classList.add("active"));
 
-  yeses.forEach((e)=>
-  e.classList.add("active"))
-
-  window.location.reload()
+  window.location.reload();
 });
-
 
 // start toggle menu ////////////////////////
 
-toggleBtn = document.querySelector(".toggle-menu")
-toggleSpan = document.querySelector(".toggle-menu span")
+toggleBtn = document.querySelector(".toggle-menu");
+toggleSpan = document.querySelector(".toggle-menu span");
 
-toggleList = document.querySelector(".links")
+toggleList = document.querySelector(".links");
 
-toggleBtn.addEventListener("click" , (e)=>{
-  e.stopPropagation()
-toggleList.classList.toggle("open")
-toggleBtn.classList.toggle("menu-active")
-})
+toggleBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleList.classList.toggle("open");
+  toggleBtn.classList.toggle("menu-active");
+});
 
+window.onclick = function (e) {
+  if (e.target !== toggleBtn && e.target !== toggleList) {
+    if (
+      toggleList.classList.contains("open") &&
+      toggleBtn.classList.contains("menu-active")
+    ) {
+      toggleList.classList.remove("open");
+      toggleBtn.classList.remove("menu-active");
+    }
+  }
 
+  if (e.target !== settingBox) {
+    if (
+      settingBox.classList.contains("open") &&
+      gear.classList.contains("fa-spin")
+    ) {
+      settingBox.classList.remove("open");
+      gear.classList.remove("fa-spin");
+    }
+  }
+};
 
-window.onclick = function(e){
-if (e.target !== toggleBtn && e.target !== toggleList){
-  if(toggleList.classList.contains("open") && toggleBtn.classList.contains("menu-active")){
-  toggleList.classList.remove("open")
-  toggleBtn.classList.remove("menu-active")}
-}
-}
-
-toggleList.onclick = function(e){
-e.stopPropagation()
-}
+toggleList.onclick = function (e) {
+  e.stopPropagation();
+};
